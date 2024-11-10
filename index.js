@@ -9,7 +9,7 @@ app.use(express.json());
 let forwardingInfo = null; // Store the forwarding address here
 
 // API to receive port forwarding information and store it on the server
-app.post('/api/forwarding', (req, res, next) => {
+app.post('/', (req, res, next) => {
     try {
         const { forwardingAddress } = req.body;
         
@@ -28,7 +28,7 @@ app.post('/api/forwarding', (req, res, next) => {
 });
 
 // API to return the stored port forwarding information
-app.get('/api/forwarding', (req, res, next) => {
+app.get('/', (req, res, next) => {
     try {
         if (forwardingInfo) {
             return res.status(200).json({
